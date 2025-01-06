@@ -35,10 +35,10 @@ const Chat: React.FC = () => {
       };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
+      const e = error as Error;
       const assistantMessage = {
         role: "assistant",
-        content:
-          error.message || "Something went wrong. Please try again later.",
+        content: e.message || "Something went wrong. Please try again later.",
       };
       setMessages((prev) => [...prev, assistantMessage]);
     } finally {
